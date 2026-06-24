@@ -1,0 +1,28 @@
+[package]
+name = "rubix-twenty"
+version = "0.1.0"
+authors = ["rubixvi"]
+description = "Desktop client for Twenty, a self-hosted, open-source, cross-platform, and privacy-focused alternative to Notion. Built with Rust, Tauri, and Next.js."
+license = "MIT"
+repository = "https://github.com/rubix-studios-pty-ltd/twenty-app"
+edition = "2024"
+rust-version = "1.95.0"
+
+[build-dependencies]
+tauri-build = { version = "2.6.3", features = [] }
+
+[lib]
+name = "twenty_core"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[dependencies]
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+url = "2"
+tauri = { version = "2.11.3", features = ["tray-icon"] }
+tauri-plugin-notification = "2"
+tauri-plugin-opener = "2"
+auto-launch = "0.6"
+
+[target.'cfg(not(any(target_os = "android", target_os = "ios")))'.dependencies]
+tauri-plugin-updater = "2"

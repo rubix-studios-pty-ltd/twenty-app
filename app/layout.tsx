@@ -1,0 +1,29 @@
+import { type Metadata } from 'next'
+import { Inter } from 'next/font/google'
+
+import { Toaster } from '@/components/ui/sonner'
+
+import '../styles/globals.css'
+
+const inter = Inter({
+  adjustFontFallback: true,
+  display: 'swap',
+  preload: true,
+  subsets: ['latin'],
+  variable: '--font-inter',
+})
+
+export const metadata: Metadata = {
+  title: 'Twenty',
+}
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <html data-scroll-behavior="smooth" lang="en" suppressHydrationWarning>
+      <body className={`${inter.variable} bg-background font-sans text-foreground antialiased`}>
+        {children}
+        <Toaster />
+      </body>
+    </html>
+  )
+}
