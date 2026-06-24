@@ -5,9 +5,9 @@ mod listeners;
 mod tray;
 mod windows;
 
-use tray::setup_tray;
-use windows::main::{setup_window};
 use listeners::inject_link;
+use tray::setup_tray;
+use windows::main::setup_window;
 
 pub fn run() {
     let app = tauri::Builder::default()

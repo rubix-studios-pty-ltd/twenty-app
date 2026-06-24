@@ -77,7 +77,7 @@ pub fn setup_tray(app: &tauri::App) -> tauri::Result<()> {
                     let _ = check_item.set_checked(enabled);
                 }
             }
-           "check_updates" => {
+            "check_updates" => {
                 let handle = app.app_handle().clone();
 
                 tauri::async_runtime::spawn(async move {

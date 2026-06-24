@@ -7,7 +7,7 @@
     "urls": ["https://*"]
   },
   "permissions": [
-    "core:default", 
+    "core:default",
     "core:window:default",
     "core:window:allow-close",
     "core:window:allow-hide",

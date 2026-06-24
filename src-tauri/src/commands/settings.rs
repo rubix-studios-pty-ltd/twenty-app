@@ -20,8 +20,7 @@ pub fn open_external(url: String) -> Result<(), String> {
 
     match parsed.scheme() {
         "http" | "https" | "tel" => {
-            tauri_plugin_opener::open_url(parsed.as_str(), None::<&str>)
-                .map_err(|e| e.to_string())
+            tauri_plugin_opener::open_url(parsed.as_str(), None::<&str>).map_err(|e| e.to_string())
         }
         scheme => Err(format!("Blocked unsupported URL scheme: {scheme}")),
     }

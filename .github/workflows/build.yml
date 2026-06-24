@@ -19,16 +19,16 @@ jobs:
         include:
           - platform: 'macos-latest'
             args: '--target aarch64-apple-darwin'
-            assetNamePattern: 'Ntfy-macOS-Apple-Silicon[ext]'
+            assetNamePattern: 'Twenty-macOS-Apple-Silicon[ext]'
           - platform: 'macos-latest'
             args: '--target x86_64-apple-darwin'
-            assetNamePattern: 'Ntfy-macOS-Intel[ext]'
+            assetNamePattern: 'Twenty-macOS-Intel[ext]'
           - platform: 'ubuntu-24.04'
             args: ''
-            assetNamePattern: 'Ntfy-Linux-x64[ext]'
+            assetNamePattern: 'Twenty-Linux-x64[ext]'
           - platform: 'windows-latest'
             args: ''
-            assetNamePattern: 'Ntfy-Windows-x64-Setup[ext]'
+            assetNamePattern: 'Twenty-Windows-x64-Setup[ext]'
     runs-on: ${{ matrix.platform }}
 
     steps:
@@ -85,8 +85,8 @@ jobs:
           TAURI_SIGNING_PRIVATE_KEY_PASSWORD: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY_PASSWORD }}
         with:
           tagName: ${{ steps.version.outputs.version }}
-          releaseName: "Ntfy App ${{ steps.version.outputs.version }}"
-          releaseBody: "See the [changelog](https://github.com/rubix-studios-pty-ltd/ntfy-app/blob/main/CHANGELOG.md) for details."
+          releaseName: "Twenty App ${{ steps.version.outputs.version }}"
+          releaseBody: "See the [changelog](https://github.com/rubix-studios-pty-ltd/twenty-app/blob/main/CHANGELOG.md) for details."
           releaseDraft: true
           prerelease: false
           args: ${{ matrix.args }}
