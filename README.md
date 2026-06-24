@@ -106,7 +106,7 @@ pnpm update       # Update dependencies interactively
 ## Structure
 
 ```
-ntfy-app/
+twenty-app/
 ├── app/                    # Next.js app directory
 ├── components/             # React components
 ├── lib/                    # Utility functions
