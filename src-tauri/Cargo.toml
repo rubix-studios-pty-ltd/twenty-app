@@ -1,6 +1,6 @@
 [package]
 name = "rubix-twenty"
-version = "0.2.0"
+version = "0.0.0"
 authors = ["rubixvi"]
 description = "Desktop client for Twenty, a self-hosted, open-source, cross-platform, and privacy-focused alternative to Notion. Built with Rust, Tauri, and Next.js."
 license = "MIT"
