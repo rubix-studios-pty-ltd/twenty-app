@@ -10,6 +10,7 @@ Automatic updates are disabled by default to reduce background activity, externa
 [![GitHub Last Commit](https://img.shields.io/github/last-commit/rubix-studios-pty-ltd/twenty-app)](https://github.com/rubix-studios-pty-ltd/twenty-app/commits/main)
 [![GitHub Contributors](https://img.shields.io/github/contributors/rubix-studios-pty-ltd/twenty-app)](#contributors-)
 
+<img width="1477" height="962" alt="image" src="https://github.com/user-attachments/assets/175e7ea3-85df-409d-a46c-17d7560baf7d" />
 
 ## Features
 
