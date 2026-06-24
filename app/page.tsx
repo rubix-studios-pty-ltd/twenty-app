@@ -1,7 +1,7 @@
 import Image from 'next/image'
 
 import { Instance } from '@/components/instance'
-import twenty from '@/src-tauri/icons/icon.png'
+import twenty from '@/public/icon.png'
 
 export default function Page() {
   return (
