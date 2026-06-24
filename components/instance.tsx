@@ -6,6 +6,7 @@ import { toast } from 'sonner'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
+import { Spinner } from '@/components/ui/spinner'
 import { readUrl } from '@/lib/tauri/settings'
 import { useStore } from '@/store/instance'
 import { startInstance } from '@/utils/startInstance'
@@ -42,11 +43,7 @@ export function Instance() {
     return (
       <div className="min-w-xs min-h-33 gap-6 flex flex-col items-center">
         <Label className="font-bold text-lg justify-center w-full">Twenty</Label>
-        <div className="flex justify-center gap-2">
-          <span className="h-2 w-2 animate-bounce rounded-full bg-black [animation-delay:-0.3s]" />
-          <span className="h-2 w-2 animate-bounce rounded-full bg-black [animation-delay:-0.15s]" />
-          <span className="h-2 w-2 animate-bounce rounded-full bg-black" />
-        </div>
+        <Spinner className="size-6" />
       </div>
     )
   }
