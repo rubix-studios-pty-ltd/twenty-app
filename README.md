@@ -113,9 +113,7 @@ ntfy-app/
 ├── src-tauri/              # Rust/Tauri backend
 │   ├── src/
 │   │   ├── main.rs         # Application entry point
-│   │   ├── window.rs       # Window event handling
 │   │   ├── tray.rs         # System tray setup
-│   │   ├── listener.rs     # ntfy listener logic
 │   │   ├── commands/       # Tauri IPC commands
 │   │   └── ...
 │   └── tauri.conf.json     # Tauri configuration
