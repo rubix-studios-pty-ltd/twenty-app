@@ -98,7 +98,7 @@ impl ksni::Tray for TwentyTray {
 }
 
 pub fn setup_tray(app: &tauri::App) -> tauri::Result<()> {
-    let tray = NtfyTray {
+    let tray = TwentyTray {
         app: app.handle().clone(),
         startup_enabled: is_autostart_enabled(),
     };
