@@ -4,24 +4,24 @@ use crate::autostart::{is_autostart_enabled, toggle_autostart};
 use crate::tray::{check_updates, exit_app, reset_instance};
 use crate::windows::main::{toggle_main_window, window_tray_label};
 
-pub struct NtfyTray {
+pub struct TwentyTray {
     app: tauri::AppHandle,
     startup_enabled: bool,
 }
 
 pub fn sync_tray_label(_app: &tauri::AppHandle) {}
 
-impl ksni::Tray for NtfyTray {
+impl ksni::Tray for TwentyTray {
     fn id(&self) -> String {
-        "ntfy_app".to_string()
+        "twenty_app".to_string()
     }
 
     fn title(&self) -> String {
-        "ntfy".to_string()
+        "twenty".to_string()
     }
 
     fn icon_name(&self) -> String {
-        "ntfy_app".to_string()
+        "twenty_app".to_string()
     }
 
     fn category(&self) -> ksni::Category {
