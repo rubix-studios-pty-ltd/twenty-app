@@ -6,7 +6,6 @@ use crate::windows::main::{toggle_main_window, window_tray_label};
 
 pub struct NtfyTray {
     app: tauri::AppHandle,
-    version: String,
     startup_enabled: bool,
 }
 
@@ -42,7 +41,7 @@ impl ksni::Tray for NtfyTray {
                 label: window_tray_label(&self.app).into(),
                 activate: Box::new(|tray: &mut Self| {
                     toggle_main_window(&tray.app);
-                    sync_tray_label(&self.app);
+                    sync_tray_label(&tray.app);
                 }),
                 ..Default::default()
             }
