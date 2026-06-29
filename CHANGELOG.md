@@ -2,6 +2,15 @@
 
 
 
+
+## [0.1.3] - 2026-06-29
+
+### Changed
+
+- remove unused version field and fix tray label sync
+- rename and update associated identifiers
+- update tray initialization to use TwentyTray
+
 ## [0.1.2] - 2026-06-29
 
 - adjust linux tray icons to cargo ksni
