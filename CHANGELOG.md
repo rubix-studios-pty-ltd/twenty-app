@@ -3,6 +3,12 @@
 
 
 
+
+## [0.1.4] - 2026-07-04
+
+- update tray
+- clean up docs
+
 ## [0.1.3] - 2026-06-29
 
 ### Changed
