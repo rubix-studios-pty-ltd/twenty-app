@@ -38,7 +38,8 @@ pub fn setup_tray(app: &tauri::App) -> tauri::Result<()> {
         None::<&str>,
     )?;
 
-    let reset_instance_item = MenuItem::with_id(app, "reset_instance", "Reset", true, None::<&str>)?;
+    let reset_instance_item =
+        MenuItem::with_id(app, "reset_instance", "Reset", true, None::<&str>)?;
     let updates = MenuItem::with_id(app, "check_updates", "Update", true, None::<&str>)?;
     let exit = MenuItem::with_id(app, "exit", "Exit", true, None::<&str>)?;
 
@@ -73,8 +74,7 @@ pub fn setup_tray(app: &tauri::App) -> tauri::Result<()> {
         .tooltip("Twenty")
         .menu(&menu)
         .show_menu_on_left_click(false)
-        .on_menu_event(move |app, event| {
-            match event.id.as_ref() {
+        .on_menu_event(move |app, event| match event.id.as_ref() {
             "open" => {
                 toggle_main_window(app);
                 sync_tray_label(app);
@@ -99,12 +99,11 @@ pub fn setup_tray(app: &tauri::App) -> tauri::Result<()> {
                 exit_app(app);
             }
             _ => {}
-        }
-    })
-    .on_tray_icon_event(move |tray, event| {
-        if let TrayIconEvent::Click {
-            button: MouseButton::Left,
-            button_state: MouseButtonState::Up,
+        })
+        .on_tray_icon_event(move |tray, event| {
+            if let TrayIconEvent::Click {
+                button: MouseButton::Left,
+                button_state: MouseButtonState::Up,
                 ..
             } = event
             {
