@@ -59,16 +59,16 @@ export function Instance() {
     >
       <Label className="font-bold text-lg justify-center w-full">Twenty</Label>
       <Input
-        className="border border-border text-xs"
-        name="instanceUrl"
-        type="url"
-        inputMode="url"
         autoComplete="off"
-        spellCheck={false}
-        value={instance || ''}
+        className="border border-border text-xs"
+        inputMode="url"
+        name="instanceUrl"
+        onChange={(event) => setInstance(event.target.value.trim())}
         placeholder="https://app.twenty.com"
         required
-        onChange={(event) => setInstance(event.target.value.trim())}
+        spellCheck={false}
+        type="url"
+        value={instance || ''}
       />
 
       <Button
