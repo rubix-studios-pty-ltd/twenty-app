@@ -1,7 +1,7 @@
 {
   "name": "twenty-app",
   "title": "Twenty App",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Desktop client for Twenty, a self-hosted, open-source, cross-platform, and privacy-focused alternative to Notion. Built with Rust, Tauri, and Next.js.",
   "license": "MIT",
   "private": true,
