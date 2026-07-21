@@ -54,12 +54,12 @@ impl ksni::Tray for TwentyTray {
                         label: "Startup".into(),
                         checked: self.startup_enabled,
                         activate: Box::new(|tray: &mut Self| {
-                            if let Err(error) = toggle_autostart() {
+                            if let Err(error) = toggle_autostart(&tray.app) {
                                 eprintln!("Failed to toggle autostart: {error}");
                                 return;
                             }
 
-                            tray.startup_enabled = is_autostart_enabled();
+                            tray.startup_enabled = is_autostart_enabled(&tray.app);
                         }),
                         ..Default::default()
                     }
@@ -100,7 +100,7 @@ impl ksni::Tray for TwentyTray {
 pub fn setup_tray(app: &tauri::App) -> tauri::Result<()> {
     let tray = TwentyTray {
         app: app.handle().clone(),
-        startup_enabled: is_autostart_enabled(),
+        startup_enabled: is_autostart_enabled(app.handle()),
     };
 
     match tauri::async_runtime::block_on(tray.disable_dbus_name(true).spawn()) {
