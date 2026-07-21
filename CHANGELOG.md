@@ -6,6 +6,11 @@
 
 
 
+
+## [0.1.7] - 2026-07-21
+
+- Nextjs security dependency update
+
 ## [0.1.6] - 2026-07-21
 
 ### Fixed
