@@ -5,6 +5,19 @@
 
 
 
+
+
+## [0.1.7] - 2026-07-21
+
+- Nextjs security dependency update
+
+## [0.1.6] - 2026-07-21
+
+### Fixed
+
+- adjust Windows subsystem configuration for better compatibility
+- replace auto launch with autostart crate
+
 ## [0.1.5] - 2026-07-14
 
 Maintenance release.
