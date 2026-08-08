@@ -1,13 +1,13 @@
+use listeners::inject_link;
+use tray::system::setup_tray;
+use windows::main::setup_window_events;
+
 mod autostart;
 mod commands;
 mod config;
 mod listeners;
 mod tray;
 mod windows;
-
-use listeners::inject_link;
-use tray::system::setup_tray;
-use windows::main::setup_window_events;
 
 pub fn run() {
     #[cfg(target_os = "linux")]
