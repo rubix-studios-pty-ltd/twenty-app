@@ -1,5 +1,17 @@
 
 
+## [0.1.9] - 2026-09-15
+
+### Fixed
+
+- **security**: nextjs update patch
+
+### Changed
+
+- streamline changelog entry generation in release script
+
+
+
 
 
 
