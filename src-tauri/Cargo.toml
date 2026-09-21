@@ -6,7 +6,7 @@ description = "Desktop client for Twenty, a self-hosted, open-source, cross-plat
 license = "MIT"
 repository = "https://github.com/rubix-studios-pty-ltd/twenty-app"
 edition = "2024"
-rust-version = "1.95.0"
+rust-version = "1.98.1"
 
 [build-dependencies]
 tauri-build = { version = "2.6.3", features = [] }
@@ -19,7 +19,7 @@ crate-type = ["staticlib", "cdylib", "rlib"]
 serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0"
 url = "2"
-tauri = { version = "2.11.5", features = ["tray-icon"] }
+tauri = { version = "2.11.6", features = ["tray-icon"] }
 tauri-plugin-notification = "2"
 tauri-plugin-opener = "2"
 tauri-plugin-window-state = "2.4.1"
