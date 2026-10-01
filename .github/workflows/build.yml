@@ -3,16 +3,60 @@ name: Release
 on:
   push:
     tags:
-      - "v*"
+      - 'v*'
 
 concurrency:
   group: release-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
-  release:
+  prepare:
+    runs-on: ubuntu-latest
+
     permissions:
       contents: write
+
+    outputs:
+      release-id: ${{ steps.release.outputs.release-id }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Read Version
+        id: version
+        shell: bash
+        run: |
+          VERSION=$(node -p "require('./package.json').version")
+          echo "version=v$VERSION" >> "$GITHUB_OUTPUT"
+
+      - name: Create Draft Release
+        id: release
+        shell: bash
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TAG: ${{ steps.version.outputs.version }}
+        run: |
+          RELEASE_ID=$(
+            gh api \
+              --method POST \
+              "repos/${GITHUB_REPOSITORY}/releases" \
+              -f tag_name="$TAG" \
+              -f name="Twenty App $TAG" \
+              -f body="See the [changelog](https://github.com/rubix-studios-pty-ltd/twenty-app/blob/main/CHANGELOG.md) for details." \
+              -F draft=true \
+              -F prerelease=false \
+              --jq '.id'
+          )
+
+          echo "release-id=$RELEASE_ID" >> "$GITHUB_OUTPUT"
+
+  release:
+    needs: prepare
+
+    permissions:
+      contents: write
+
     strategy:
       fail-fast: false
       matrix:
@@ -20,15 +64,19 @@ jobs:
           - platform: 'macos-latest'
             args: '--target aarch64-apple-darwin'
             assetNamePattern: 'Twenty-macOS-Apple-Silicon[ext]'
+
           - platform: 'macos-latest'
             args: '--target x86_64-apple-darwin'
             assetNamePattern: 'Twenty-macOS-Intel[ext]'
+
           - platform: 'ubuntu-24.04'
             args: ''
             assetNamePattern: 'Twenty-Linux-x64[ext]'
+
           - platform: 'windows-latest'
             args: ''
             assetNamePattern: 'Twenty-Windows-x64-Setup[ext]'
+
     runs-on: ${{ matrix.platform }}
 
     steps:
@@ -52,7 +100,19 @@ jobs:
         if: matrix.platform == 'ubuntu-24.04'
         run: |
           sudo apt-get update
-          sudo apt-get install -y libwebkit2gtk-4.1-dev build-essential curl wget file libxdo-dev libssl-dev libayatana-appindicator3-dev librsvg2-dev libpipewire-0.3-dev libgbm-dev patchelf
+          sudo apt-get install -y \
+            libwebkit2gtk-4.1-dev \
+            build-essential \
+            curl \
+            wget \
+            file \
+            libxdo-dev \
+            libssl-dev \
+            libayatana-appindicator3-dev \
+            librsvg2-dev \
+            libpipewire-0.3-dev \
+            libgbm-dev \
+            patchelf
 
       - name: Rust cache
         uses: swatinem/rust-cache@v2.9.2
@@ -70,7 +130,7 @@ jobs:
         shell: bash
         run: |
           VERSION=$(node -p "require('./package.json').version")
-          echo "version=v$VERSION" >> $GITHUB_OUTPUT
+          echo "version=v$VERSION" >> "$GITHUB_OUTPUT"
 
       - name: Build Tauri
         uses: tauri-apps/tauri-action@v1.0.0
@@ -79,10 +139,9 @@ jobs:
           TAURI_SIGNING_PRIVATE_KEY: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY }}
           TAURI_SIGNING_PRIVATE_KEY_PASSWORD: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY_PASSWORD }}
         with:
+          releaseId: ${{ needs.prepare.outputs.release-id }}
           tagName: ${{ steps.version.outputs.version }}
-          releaseName: "Twenty App ${{ steps.version.outputs.version }}"
-          releaseBody: "See the [changelog](https://github.com/rubix-studios-pty-ltd/twenty-app/blob/main/CHANGELOG.md) for details."
           releaseDraft: true
           prerelease: false
           args: ${{ matrix.args }}
-          assetNamePattern: ${{ matrix.assetNamePattern }}
+          releaseAssetNamePattern: ${{ matrix.assetNamePattern }}
