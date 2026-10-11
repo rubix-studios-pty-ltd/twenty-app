@@ -1,5 +1,9 @@
 
 
+## [0.1.12] - 2026-10-11
+
+Maintenance release.
+
 ## [0.1.11] - 2026-10-01
 
 Maintenance release.
