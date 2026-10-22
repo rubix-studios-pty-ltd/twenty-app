@@ -41,17 +41,20 @@ Download the latest release for your operating system from the [releases page](h
 ### From Source
 
 1. **Clone the repository:**
+
    ```bash
    git clone https://github.com/rubix-studios-pty-ltd/twenty-app.git
    cd twenty-app
    ```
 
 2. **Install dependencies:**
+
    ```bash
    pnpm install
    ```
 
 3. **Build the application:**
+
    ```bash
    pnpm build
    ```
@@ -127,11 +130,11 @@ twenty-app/
 ## Contributing
 
 We welcome contributions! Please follow these guidelines:
-
 1. Fork the repository
 2. Create a feature branch (`git checkout -b feature/amazing-feature`)
 3. Make your changes
 4. Run linting and type checking:
+
    ```bash
    pnpm lint:fix
    pnpm typecheck
@@ -155,7 +158,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## Support
 
 For support or inquiries:
-
 - LinkedIn: [rubixvi](https://www.linkedin.com/in/rubixvi/)
 - Website: [Rubix Studios](https://rubixstudios.com.au)
 
