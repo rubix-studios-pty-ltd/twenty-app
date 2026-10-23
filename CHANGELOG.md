@@ -2,6 +2,13 @@
 
 Maintenance release.
 
+## [0.2.0] - 2026-10-23
+
+### Fixed
+
+- **sec**: Node - CVE-2026-111497
+- **biome**: Changelog build interruption.
+
 ## [0.1.11] - 2026-10-01
 
 Maintenance release.
