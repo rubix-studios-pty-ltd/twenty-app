@@ -66,11 +66,13 @@ Download the latest release for your operating system from the [releases page](h
 ### Prerequisites
 
 Install Rust toolchain:
+
 ```bash
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 ```
 
 For macOS, also install additional targets:
+
 ```bash
 rustup target add aarch64-apple-darwin x86_64-apple-darwin
 ```
@@ -78,11 +80,13 @@ rustup target add aarch64-apple-darwin x86_64-apple-darwin
 ### Running Development
 
 Start the development server:
+
 ```bash
 pnpm dev
 ```
 
 This will:
+
 - Start the Next.js dev server on `http://localhost:5174`
 - Launch the Tauri development window with hot-reload
 
@@ -130,6 +134,7 @@ twenty-app/
 ## Contributing
 
 We welcome contributions! Please follow these guidelines:
+
 1. Fork the repository
 2. Create a feature branch (`git checkout -b feature/amazing-feature`)
 3. Make your changes
@@ -158,6 +163,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## Support
 
 For support or inquiries:
+
 - LinkedIn: [rubixvi](https://www.linkedin.com/in/rubixvi/)
 - Website: [Rubix Studios](https://rubixstudios.com.au)
 
