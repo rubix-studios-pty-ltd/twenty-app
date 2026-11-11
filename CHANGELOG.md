@@ -2,6 +2,13 @@
 
 Maintenance release.
 
+## [0.3.0] - 2026-11-11
+
+### Fixed
+
+- **sec**: bump mini next
+- **sec**: node security update
+
 ## [0.2.0] - 2026-10-23
 
 ### Fixed
