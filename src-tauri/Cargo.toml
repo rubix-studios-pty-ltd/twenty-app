@@ -6,7 +6,7 @@ description = "Desktop client for Twenty, a self-hosted, open-source, cross-plat
 license = "MIT"
 repository = "https://github.com/rubix-studios-pty-ltd/twenty-app"
 edition = "2024"
-rust-version = "1.99.1"
+rust-version = "1.100.0"
 
 [build-dependencies]
 tauri-build = { version = "2.7.6", features = [] }
