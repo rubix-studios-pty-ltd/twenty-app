@@ -75,7 +75,7 @@
     "@tailwindcss/postcss": "^4.3.5",
     "@tauri-apps/cli": "^2.12.6",
     "@types/node": "^26.6.10",
-    "@types/react": "^19.3.2",
+    "@types/react": "^19.3.3",
     "@types/react-dom": "^19.3.0",
     "shadcn": "^4.23.0",
     "tailwindcss": "^4.3.5",
